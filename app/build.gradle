@@ -1,0 +1,73 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+}
+
+android {
+    namespace 'com.shayan.workManager'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.shayan.workManager"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+
+    def fragment_version = "1.2.4"
+    implementation "androidx.fragment:fragment:$fragment_version"
+
+    // work manager and Coroutine Worker
+    implementation "androidx.work:work-runtime-ktx:2.8.1"
+
+    //logging
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.11.0'
+
+    //Retrofit
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
+    api 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+
+    //hilt and hilt Worker for DI
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
+    implementation 'androidx.hilt:hilt-work:1.0.0'
+
+    // timber
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+
+
+}

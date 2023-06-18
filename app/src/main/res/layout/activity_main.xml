@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textColor="#222222"
+        android:textStyle="bold"
+        android:text="Support Valid Video Link .mp4 and .mkv \n For other type of media you should set mime type in code, this is a Sample"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_file_name"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_start_download"
+        android:layout_width="match_parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/hint"
+        app:boxStrokeWidth="1dp"
+        android:textColorHint="@color/hint"
+        android:hint="Enter File Name to Store in cacheDir"
+        android:layout_height="56dp">
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/ed_file_name"
+            android:textSize="13sp"
+            android:maxLength="12"
+            android:textColor="@color/gray"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_url"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toTopOf="@id/ti_file_name"
+        android:layout_width="match_parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/hint"
+        app:boxStrokeWidth="1dp"
+        android:textColorHint="@color/hint"
+        android:hint="Enter Video Url Here (mp4 or mkv)"
+        android:layout_height="56dp">
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/ed_url_name"
+            android:textSize="13sp"
+            android:textColor="@color/gray"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.button.MaterialButton
+        app:elevation="6dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        app:cornerRadius="12dp"
+        android:layout_width="200dp"
+        android:id="@+id/btn_start_download"
+        android:layout_height="wrap_content"
+        android:text="Start Download"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.button.MaterialButton
+        app:elevation="6dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        app:cornerRadius="12dp"
+        android:layout_width="200dp"
+        android:id="@+id/btn_stop_download"
+        android:layout_height="wrap_content"
+        android:text="Stop Download"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_start_download"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
