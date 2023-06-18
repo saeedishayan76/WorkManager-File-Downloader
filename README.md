@@ -1,6 +1,6 @@
 # WorkManager-File-Downloader
 
-# Download data with Work Manager (CoroutineWorker) and ForegroundService 
+# Download File with Work Manager (CoroutineWorker and Foreground Service) 
 
 Store File in Internal Storage (CacheDir) and Continue When User Kill the App
 in this Project im Using
