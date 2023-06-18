@@ -9,16 +9,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.work.Constraints
 import androidx.work.Data
 import androidx.work.ExistingWorkPolicy
-import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequest
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import androidx.work.WorkQuery
-import androidx.work.await
 import com.shayan.workManager.constants.Constant
 import com.shayan.workManager.databinding.ActivityMainBinding
 import com.shayan.workManager.worker.DownloadWorker
@@ -31,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { Granted ->
             if (Granted) {
                 Timber.d("permission Granted")
+                Toast.makeText(this, "Granted, Please Click Start button again", Toast.LENGTH_SHORT).show()
                 // do work here
             } else {
                 Timber.d("permission Denied")
@@ -71,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnStopDownload.setOnClickListener {
+            //query for get work with this statement
             val workQuery = WorkQuery.Builder
                 .fromUniqueWorkNames(listOf("download"))
                 .addStates(listOf(WorkInfo.State.ENQUEUED, WorkInfo.State.RUNNING))

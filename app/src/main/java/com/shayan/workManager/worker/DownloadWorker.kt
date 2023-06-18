@@ -58,14 +58,12 @@ class DownloadWorker(val context: Context, val workerParameters: WorkerParameter
     }
 
     private suspend fun downloadFile(fileName: String, fileUrl: String): Result {
-        Timber.d("file Name $fileName  url $fileUrl")
         val request = Request.Builder()
             .url(fileUrl)
             .build()
         val client = OkHttpClient()
 
         val response = client.newCall(request).awaitResponse()
-        Timber.d("response Code ${response.code}")
 
         response.body?.let { body ->
             // work with file should be in I/O Thread
@@ -139,8 +137,8 @@ class DownloadWorker(val context: Context, val workerParameters: WorkerParameter
     }
 
     /*
-    because i want to call a suspend method in on response create a suspendCancellableCoroutine
-    write this method
+    i write this method because i want to call a suspend method in on response create a suspendCancellableCoroutine
+
      */
     @OptIn(ExperimentalCoroutinesApi::class)
     suspend inline fun Call.awaitResponse(): Response {
